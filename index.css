@@ -1,0 +1,40 @@
+body {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-size: 18px;
+    background-color: black;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 1em;
+    text-align: center;
+    color: rgb(255, 0, 127);
+}
+
+h2 {
+    font-size: 2em;
+    margin: 1em;
+    color: rgb(255, 0, 127);
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:  space-evenly;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+input {
+    box-sizing: border-box;
+    flex: 1;
+    flex-basis: 40%;
+    height: 2em;
+    font-size: 1.25em;
+}
