@@ -38,3 +38,16 @@ input {
     height: 2em;
     font-size: 1.25em;
 }
+
+button {
+    font-size: 1.25em;
+    padding: 1em;
+    border-radius: 10em;
+    text-align: center;
+    line-height: 50%;
+}
+
+.submit:hover,
+button:hover {
+    background-color: rgb(255, 0, 127);
+}
