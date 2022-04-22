@@ -19,16 +19,16 @@
 
     <h2>Add To Inventory</h2>
     <div class="add-to-inventory">
-        <form>
-            <input type="text" name="item-name" id="new-item" placeholder="Item Name" required>
-            <input type="text" name="item-quality" id="item-quality" placeholder="Item Quality" pattern="0-9" required>
-            <input type="text" name="item-sell-in" id="item-sell-in" placeholder="Item Sell-In" pattern="0-9" required>
-            <input type="date" name="added-date" id="item-added-date" placeholder="mm/dd/yyyy" required>
+        <form class="item-add">
+            <input type="text" name="name" id="new-item" placeholder="Item Name" required>
+            <input type="number" name="SellIn" id="item-sell-in" placeholder="Item Sell-In" required>
+            <input type="number" name="Quality" id="item-quality" placeholder="Item Quality" required>
+            <input type="text" name="Date" id="item-added-date" placeholder="m/dd/yyyy" required>
+            <input type="reset" class="reset">
             <input type="submit" class="submit">
         </form>
     </div>
     <h2>Current Inventory</h2>
-    <button>Display</button>
     <div class="table-slot">  
         <table width="80%" id="dt" class="display " cellspacing="0">  
             <thead>  
