@@ -10,7 +10,7 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     font-size: 18px;
-    background-color: black;
+    background-color: rgb(90, 90, 90);
 }
 
 h1 {
@@ -53,4 +53,18 @@ button {
 .submit:hover,
 button:hover {
     background-color: rgb(255, 0, 127);
+}
+
+th {
+    color: rgb(255, 0, 127);
+}
+
+tr {
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    table {
+        font-size: .5em;
+    }
 }

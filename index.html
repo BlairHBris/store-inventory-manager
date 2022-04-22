@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="index.css" />
     <script defer src="index.js"></script>
     <link rel="icon" href="images/faviconygo.ico">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
     <title>The Guilded Rose</title>
 </head>
 
@@ -27,9 +28,24 @@
         </form>
     </div>
     <h2>Current Inventory</h2>
-    <div class="current-inventory">
-        <button>Display</button>
-    </div>
+    <button>Display</button>
+    <div class="table-slot">  
+        <table width="80%" id="dt" class="display " cellspacing="0">  
+            <thead>  
+                <tr>  
+                    <th>Stock</th>  
+                    <th>Name</th>  
+                    <th>Sell-In</th>  
+                    <th>Init. Quality</th>  
+                    <th>Date Obtained</th>
+                    <th>Curr. Quality</th>  
+                </tr>  
+            </thead>  
+        </table>  
+    </div>  
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.15/api/row().show().js"></script>
 </body>
 
 </html>
