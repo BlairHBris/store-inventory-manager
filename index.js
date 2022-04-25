@@ -82,6 +82,9 @@ function qualityCalculation(event) {
         if (Number(item.CurrQuality) >= 50 && !item.name.includes('Sulfuras')) {
             item.CurrQuality = 50
         }
+        if (Number(item.CurrQuality) <= 0) {
+            item.CurrQuality = 0
+        }
         addTable(item)
     })
 }
