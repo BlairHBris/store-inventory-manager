@@ -63,6 +63,7 @@ function qualityCalculation(event) {
             item['CurrQuality'] = Number(item.Quality) + dayDifference
         } else if (item.name.includes('Sulfuras')) {
             item['CurrQuality'] = item.Quality
+            item['RemSellIn'] = item.SellIn
         }else if (item.name.includes('Backstage passes')) {
             if (Number(item.RemSellIn) > 10) {
                 item['CurrQuality'] = Number(item.Quality) + dayDifference
