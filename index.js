@@ -1,6 +1,6 @@
 const items = [
     { name: '+5 Dexterity Vest', SellIn: '10', Quality: '20', Date: '04/20/2022' },
-    { name: 'Aged Bri', SellIn: '2', Quality: '0', Date: '04/21/2022' },
+    { name: 'Aged Brie', SellIn: '2', Quality: '0', Date: '04/21/2022' },
     { name: 'Elixir of the Mongoose', SellIn: '5', Quality: '7', Date: '04/22/2022' },
     { name: 'Sulfuras, Hand of Ragnaros', SellIn: '0', Quality: '80', Date: '04/23/2022' },
     { name: 'Backstage passes to a TAFKAL80ETC concert', SellIn: '15', Quality: '20', Date: '04/19/2022' },
@@ -59,7 +59,13 @@ function qualityCalculation(event) {
         const timeDifference = date1.getTime() -date2.getTime()
         const dayDifference = timeDifference / (1000*3600*24)
         item['RemSellIn'] = item.SellIn - dayDifference
-        item['CurrQuality'] = item.Quality - dayDifference
+        if (item.name.includes('Aged Brie')) {
+            item['CurrQuality'] = Number(item.Quality) + dayDifference
+        } else if (item.name.includes('Sulfuras')) {
+            item['CurrQuality'] = item.Quality
+        } else {
+            item['CurrQuality'] = item.Quality - dayDifference
+        }
         addTable(item)
     })
 }
