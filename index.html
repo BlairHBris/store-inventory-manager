@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="index.css" />
     <script defer src="index.js"></script>
     <link rel="icon" href="images/faviconygo.ico">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
     <title>The Guilded Rose</title>
 </head>
 
@@ -29,28 +28,28 @@
         </form>
     </div>
     <h2>Current Inventory</h2>
+    <button class="generate">Generate</button>
     <div class="table-slot">  
-        <table width="80%" id="dt" class="display " cellspacing="0">  
+        <table class="table">  
             <thead>  
-                <tr>  
-                    <th>Stock</th>  
+                <tr>
                     <th>Name</th>  
                     <th>Sell-In</th>  
                     <th>Init. Quality</th>  
                     <th>Date Obtained</th>
+                    <th>Rem. Sell-In</th>
                     <th>Curr. Quality</th>  
                 </tr>  
-            </thead>  
+            </thead> 
+            <tbody>
+            </tbody> 
         </table>  
     </div>
     <h3>Current Date</h3>
     <form class = 'submit-date'>
-        <input type="text" name="Current Date" placeholder="mm/dd/yyyy">
-        <input type="submit" class="submit" value="Get Curr. Quality">
+        <input type="text" class='current-date' name="Current Date" placeholder="mm/dd/yyyy">
+        <input type="submit" class="submit" value="Get Addl. Data">
     </form>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.10.15/api/row().show().js"></script>
 </body>
 
 </html>
