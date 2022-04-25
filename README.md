@@ -1,5 +1,11 @@
 # Store Inventory Manager
 
+An inventory system built for the Guilded Rose. This system when given an item and its qualities can add it to an inventory list and display the status of the entire current inventory.
+
+Link: https://blairhbris.github.io/store-inventory-manager/
+
+# Old ReadMe
+
 Welcome to team Gilded Rose. You are asked to help build our store inventory management system. All items have a `sell_in` value which denotes the number of days we have left to sell the item and a `quality` value which denotes how valuable the item is. At the end of each day our software should lower both values for every item by 1.
 
 Pretty simple, right? There are some exceptions:
