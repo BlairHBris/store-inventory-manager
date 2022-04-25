@@ -23,7 +23,7 @@
             <input type="text" name="name" id="new-item" placeholder="Item Name" required>
             <input type="number" name="SellIn" id="item-sell-in" placeholder="Item Sell-In" required>
             <input type="number" name="Quality" id="item-quality" placeholder="Item Quality" required>
-            <input type="text" name="Date" id="item-added-date" placeholder="m/dd/yyyy" required>
+            <input type="text" name="Date" id="item-added-date" placeholder="mm/dd/yyyy" required>
             <input type="reset" class="reset">
             <input type="submit" class="submit">
         </form>
@@ -42,7 +42,12 @@
                 </tr>  
             </thead>  
         </table>  
-    </div>  
+    </div>
+    <h3>Current Date</h3>
+    <form class = 'submit-date'>
+        <input type="text" name="Current Date" placeholder="mm/dd/yyyy">
+        <input type="submit" class="submit" value="Get Curr. Quality">
+    </form>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.15/api/row().show().js"></script>
