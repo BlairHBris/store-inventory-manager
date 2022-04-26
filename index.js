@@ -23,6 +23,17 @@ form.addEventListener('submit', addItem)
 const generate = document.querySelector('.generate')
 const tbody = document.querySelector('tbody')
 
+function addBasicTable (item) {
+    const tr = document.createElement("tr")
+    tr.innerHTML = `
+    <td>${item.name}</td>
+    <td>${item.SellIn}</td>
+    <td>${item.Quality}</td>
+    <td>${item.Date}</td>
+    `
+    tbody.append(tr)
+}
+
 function addTable (item) {
     const tr = document.createElement("tr")
     tr.innerHTML = `
@@ -42,7 +53,7 @@ generate.addEventListener('click', event => {
     tbody.innerHTML=``
     table.style.display = "block"
     items.forEach(item => {
-        addTable(item) 
+        addBasicTable(item) 
     })
 })
 
