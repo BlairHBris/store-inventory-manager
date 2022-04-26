@@ -1,6 +1,8 @@
 # Store Inventory Manager
 
-An inventory system built for the Guilded Rose. This system when given an item and its qualities can add it to an inventory list and display the status of the entire current inventory.
+An inventory system built for the Guilded Rose. This system when given an item and its qualities can add it to an inventory list and display the current inventory.
+
+In order to display the current status of the inventory, a date must be entered in the date field.
 
 Link: https://blairhbris.github.io/store-inventory-manager/
 
