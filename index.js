@@ -1,10 +1,10 @@
 const items = [
-    { name: '+5 Dexterity Vest', SellIn: '10', Quality: '20', Date: '04/20/2022' },
-    { name: 'Aged Brie', SellIn: '2', Quality: '0', Date: '04/21/2022' },
-    { name: 'Elixir of the Mongoose', SellIn: '5', Quality: '7', Date: '04/22/2022' },
-    { name: 'Sulfuras, Hand of Ragnaros', SellIn: '0', Quality: '80', Date: '04/23/2022' },
-    { name: 'Backstage passes to a TAFKAL80ETC concert', SellIn: '15', Quality: '20', Date: '04/19/2022' },
-    { name: 'Conjured Mana Cake', SellIn: '3', Quality: '6', Date: '04/24/2022' }
+    { name: '+5 Dexterity Vest', sellIn: '10', quality: '20', date: '04/20/2022' },
+    { name: 'Aged Brie', sellIn: '2', quality: '0', date: '04/21/2022' },
+    { name: 'Elixir of the Mongoose', sellIn: '5', quality: '7', date: '04/22/2022' },
+    { name: 'Sulfuras, Hand of Ragnaros', sellIn: '0', quality: '80', date: '04/23/2022' },
+    { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: '15', quality: '20', date: '04/19/2022' },
+    { name: 'Conjured Mana Cake', sellIn: '3', quality: '6', date: '04/24/2022' }
 ]
 
 function addItem(event) {
@@ -27,9 +27,9 @@ function addBasicTable (item) {
     const tr = document.createElement("tr")
     tr.innerHTML = `
     <td>${item.name}</td>
-    <td>${item.SellIn}</td>
-    <td>${item.Quality}</td>
-    <td>${item.Date}</td>
+    <td>${item.sellIn}</td>
+    <td>${item.quality}</td>
+    <td>${item.date}</td>
     `
     tbody.append(tr)
 }
@@ -38,11 +38,11 @@ function addTable (item) {
     const tr = document.createElement("tr")
     tr.innerHTML = `
     <td>${item.name}</td>
-    <td>${item.SellIn}</td>
-    <td>${item.Quality}</td>
-    <td>${item.Date}</td>
-    <td>${item.RemSellIn}</td>
-    <td>${item.CurrQuality}</td>
+    <td>${item.sellIn}</td>
+    <td>${item.quality}</td>
+    <td>${item.date}</td>
+    <td>${item.remSellIn}</td>
+    <td>${item.currQuality}</td>
     `
     tbody.append(tr)
 }
@@ -66,36 +66,36 @@ function qualityCalculation(event) {
     tbody.innerHTML=``
     items.forEach(item => {
         const date1 = new Date(date)
-        const date2 = new Date(item.Date)
+        const date2 = new Date(item.date)
         const timeDifference = date1.getTime() -date2.getTime()
         const dayDifference = timeDifference / (1000*3600*24)
-        item['RemSellIn'] = item.SellIn - dayDifference
+        item['remSellIn'] = item.sellIn - dayDifference
         if (item.name.includes('Aged Brie')) {
-            item['CurrQuality'] = Number(item.Quality) + dayDifference
+            item['currQuality'] = Number(item.quality) + dayDifference
         } else if (item.name.includes('Sulfuras')) {
-            item['CurrQuality'] = item.Quality
-            item['RemSellIn'] = item.SellIn
+            item['currQuality'] = item.quality
+            item['remSellIn'] = item.sellIn
         }else if (item.name.includes('Backstage passes')) {
-            if (Number(item.RemSellIn) > 10) {
-                item['CurrQuality'] = Number(item.Quality) + dayDifference
-            } else if (Number(item.RemSellIn) <= 10 && Number(item.RemSellIn) > 5) {
-                item['CurrQuality'] = Number(item.Quality) + (Number(item.SellIn) - 10) + (2 * (10 - Number(item.RemSellIn)))
-            } else if (Number(item.RemSellIn) <= 5) {
-                item['CurrQuality'] = Number(item.Quality) + (Number(item.SellIn) - 10) + 10 + (3 * (5 - Number(item.RemSellIn)))
+            if (Number(item.remSellIn) > 10) {
+                item['currQuality'] = Number(item.quality) + dayDifference
+            } else if (Number(item.remSellIn) <= 10 && Number(item.remSellIn) > 5) {
+                item['currQuality'] = Number(item.quality) + (Number(item.sellIn) - 10) + (2 * (10 - Number(item.remSellIn)))
+            } else if (Number(item.remSellIn) <= 5) {
+                item['currQuality'] = Number(item.quality) + (Number(item.sellIn) - 10) + 10 + (3 * (5 - Number(item.remSellIn)))
             }
-            if (Number(item.RemSellIn) <= 0) {
-                item['CurrQuality'] = 0
+            if (Number(item.remSellIn) <= 0) {
+                item['currQuality'] = 0
             }
         } else if (item.name.includes('Conjured')) {
-            item['CurrQuality'] = item.Quality - (2 * Number(dayDifference))
+            item['currQuality'] = item.quality - (2 * Number(dayDifference))
         } else {
-            item['CurrQuality'] = item.Quality - dayDifference
+            item['currQuality'] = item.quality - dayDifference
         }
-        if (Number(item.CurrQuality) >= 50 && !item.name.includes('Sulfuras')) {
-            item.CurrQuality = 50
+        if (Number(item.currQuality) >= 50 && !item.name.includes('Sulfuras')) {
+            item.currQuality = 50
         }
-        if (Number(item.CurrQuality) <= 0) {
-            item.CurrQuality = 0
+        if (Number(item.currQuality) <= 0) {
+            item.currQuality = 0
         }
         addTable(item)
     })
