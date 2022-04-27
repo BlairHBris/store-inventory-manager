@@ -82,30 +82,30 @@ function qualityCalculation(event) {
         const dayDifference = timeDifference / (1000*3600*24)
         item['remSellIn'] = item.sellIn - dayDifference
         if (item.name.includes('Aged Brie')) {
-            item['currQuality'] = Number(item.quality) + dayDifference
+            item['currQuality'] = (+item.quality) + dayDifference
         } else if (item.name.includes('Sulfuras')) {
             item['currQuality'] = item.quality
             item['remSellIn'] = item.sellIn
         }else if (item.name.includes('Backstage passes')) {
-            if (Number(item.remSellIn) > 10) {
-                item['currQuality'] = Number(item.quality) + dayDifference
-            } else if (Number(item.remSellIn) <= 10 && Number(item.remSellIn) > 5) {
-                item['currQuality'] = Number(item.quality) + (Number(item.sellIn) - 10) + (2 * (10 - Number(item.remSellIn)))
-            } else if (Number(item.remSellIn) <= 5) {
-                item['currQuality'] = Number(item.quality) + (Number(item.sellIn) - 10) + 10 + (3 * (5 - Number(item.remSellIn)))
+            if ((+item.remSellIn) > 10) {
+                item['currQuality'] = (+item.quality) + dayDifference
+            } else if ((+item.remSellIn) <= 10 && (+item.remSellIn) > 5) {
+                item['currQuality'] = (+item.quality) + ((+item.sellIn) - 10) + (2 * (10 - (+item.remSellIn)))
+            } else if ((+item.remSellIn) <= 5) {
+                item['currQuality'] = (+item.quality) + ((+item.sellIn) - 10) + 10 + (3 * (5 - (+item.remSellIn)))
             }
-            if (Number(item.remSellIn) <= 0) {
+            if ((+item.remSellIn) <= 0) {
                 item['currQuality'] = 0
             }
         } else if (item.name.includes('Conjured')) {
-            item['currQuality'] = item.quality - (2 * Number(dayDifference))
+            item['currQuality'] = item.quality - (2 * (+dayDifference))
         } else {
             item['currQuality'] = item.quality - dayDifference
         }
-        if (Number(item.currQuality) >= 50 && !item.name.includes('Sulfuras')) {
+        if ((+item.currQuality) >= 50 && !item.name.includes('Sulfuras')) {
             item.currQuality = 50
         }
-        if (Number(item.currQuality) <= 0) {
+        if ((+item.currQuality) <= 0) {
             item.currQuality = 0
         }
         addTable(item)
