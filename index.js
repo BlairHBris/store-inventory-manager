@@ -52,8 +52,8 @@ function addTable (item) {
     <td>${item.sellIn}</td>
     <td>${item.quality}</td>
     <td>${item.date}</td>
-    <td>${item.remSellIn}</td>
-    <td>${item.currQuality}</td>
+    <td>${item.remainingSellIn}</td>
+    <td>${item.currentQuality}</td>
     `
     tbody.append(tr)
 }
@@ -80,33 +80,33 @@ function qualityCalculation(event) {
         const date2 = new Date(item.date)
         const timeDifference = date1.getTime() -date2.getTime()
         const dayDifference = timeDifference / (1000*3600*24)
-        item['remSellIn'] = item.sellIn - dayDifference
+        item.remainingSellIn = item.sellIn - dayDifference
         if (item.name.includes('Aged Brie')) {
-            item['currQuality'] = (+item.quality) + dayDifference
+            item.currentQuality = (+item.quality) + dayDifference
         } else if (item.name.includes('Sulfuras')) {
-            item['currQuality'] = item.quality
-            item['remSellIn'] = item.sellIn
+            item.currentQuality = item.quality
+            item.remainingSellIn = item.sellIn
         }else if (item.name.includes('Backstage passes')) {
-            if ((+item.remSellIn) > 10) {
-                item['currQuality'] = (+item.quality) + dayDifference
-            } else if ((+item.remSellIn) <= 10 && (+item.remSellIn) > 5) {
-                item['currQuality'] = (+item.quality) + ((+item.sellIn) - 10) + (2 * (10 - (+item.remSellIn)))
-            } else if ((+item.remSellIn) <= 5) {
-                item['currQuality'] = (+item.quality) + ((+item.sellIn) - 10) + 10 + (3 * (5 - (+item.remSellIn)))
+            if ((+item.remainingSellIn) > 10) {
+                item.currentQuality = (+item.quality) + dayDifference
+            } else if ((+item.remainingSellIn) <= 10 && (+item.remainingSellIn) > 5) {
+                item.currentQuality = (+item.quality) + ((+item.sellIn) - 10) + (2 * (10 - (+item.remainingSellIn)))
+            } else if ((+item.remainingSellIn) <= 5) {
+                item.currentQuality = (+item.quality) + ((+item.sellIn) - 10) + 10 + (3 * (5 - (+item.remainingSellIn)))
             }
-            if ((+item.remSellIn) <= 0) {
-                item['currQuality'] = 0
+            if ((+item.remainingSellIn) <= 0) {
+                item.currentQuality = 0
             }
         } else if (item.name.includes('Conjured')) {
-            item['currQuality'] = item.quality - (2 * (+dayDifference))
+            item.currentQuality = item.quality - (2 * (+dayDifference))
         } else {
-            item['currQuality'] = item.quality - dayDifference
+            item.currentQuality = item.quality - dayDifference
         }
-        if ((+item.currQuality) >= 50 && !item.name.includes('Sulfuras')) {
-            item.currQuality = 50
+        if ((+item.currentQuality) >= 50 && !item.name.includes('Sulfuras')) {
+            item.currentQuality = 50
         }
-        if ((+item.currQuality) <= 0) {
-            item.currQuality = 0
+        if ((item.currentQuality) <= 0) {
+            item.currentQuality = 0
         }
         addTable(item)
     })
