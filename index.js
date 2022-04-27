@@ -25,13 +25,24 @@ const tbody = document.querySelector('tbody')
 
 function addBasicTable (item) {
     const tr = document.createElement("tr")
-    tr.innerHTML = `
+    if (item.name.includes('Sulfuras')) {
+        tr.innerHTML = `
     <td>${item.name}</td>
     <td>${item.sellIn}</td>
-    <td>${item.quality}</td>
+    <td>80</td>
     <td>${item.date}</td>
     `
     tbody.append(tr)
+    } else {
+        tr.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.sellIn}</td>
+        <td>${item.quality}</td>
+        <td>${item.date}</td>
+        `
+        tbody.append(tr)
+    }
+
 }
 
 function addTable (item) {
